@@ -1,0 +1,14 @@
+{
+    "name": "doggyidparser",
+    "version": "1.0.0",
+    "description": "Official Doggy Generation Library for the CryptoDoggies Ethereum Smart Contract",
+    "main": "src/doggyidparser.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Nathan Glover",
+    "repository" :{
+        "type" : "git",
+        "url" : "https://github.com/t04glovern/doggy-id-parser.git"
+    }
+}

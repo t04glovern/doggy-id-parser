@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            }
+    </style>
+</head>
+    <body>
+        <table style="width:100%">
+            <tr>
+                <td><canvas id="canvas1"></canvas><center id="text1"></center></td>
+                <td><canvas id="canvas2"></canvas><center id="text2"></center></td>
+                <td><canvas id="canvas3"></canvas><center id="text3"></center></td>
+                <td><canvas id="canvas4"></canvas><center id="text4"></center></td>
+                <td><canvas id="canvas5"></canvas><center id="text5"></center></td>
+                <td><canvas id="canvas6"></canvas><center id="text6"></center></td>
+                <td><canvas id="canvas7"></canvas><center id="text7"></center></td>
+                <td><canvas id="canvas8"></canvas><center id="text8"></center></td>
+            </tr>
+            <tr>
+                <td><canvas id="canvas9"></canvas><center id="text9"></center></td>
+                <td><canvas id="canvas10"></canvas><center id="text10"></center></td>
+                <td><canvas id="canvas11"></canvas><center id="text11"></center></td>
+                <td><canvas id="canvas12"></canvas><center id="text12"></center></td>
+                <td><canvas id="canvas13"></canvas><center id="text13"></center></td>
+                <td><canvas id="canvas14"></canvas><center id="text14"></center></td>
+                <td><canvas id="canvas15"></canvas><center id="text15"></center></td>
+                <td><canvas id="canvas16"></canvas><center id="text16"></center></td>
+            </tr>
+            <tr>
+                <td><canvas id="canvas17"></canvas><center id="text17"></center></td>
+                <td><canvas id="canvas18"></canvas><center id="text18"></center></td>
+                <td><canvas id="canvas19"></canvas><center id="text19"></center></td>
+                <td><canvas id="canvas20"></canvas><center id="text20"></center></td>
+                <td><canvas id="canvas21"></canvas><center id="text21"></center></td>
+                <td><canvas id="canvas22"></canvas><center id="text22"></center></td>
+                <td><canvas id="canvas23"></canvas><center id="text23"></center></td>
+                <td><canvas id="canvas24"></canvas><center id="text24"></center></td>
+            </tr>
+        </table>
+        <script src="src/doggyidparser.js"></script>
+        <script>
+
+            for (i = 1; i <= 24; i++) {
+                generateDoggyImage(generateRandomImageHex("text" + i), 2, "canvas" + i);
+            }
+
+            function generateRandomImageHex(text){
+                var output_string = "0x00" +
+                Math.floor(Math.random()*255).toString(16) +
+                Math.floor(Math.random()*255).toString(16) +
+                Math.floor(Math.random()*255).toString(16) +
+                Math.floor(Math.random()*255).toString(16);
+				//document.getElementById(text).innerHTML=output_string;
+                return output_string;
+            }
+
+            function generateDoggyImage(catId, size, canvas){
+                size = size || 10;
+                var data = doggyidparser(catId);
+                var canvas = document.getElementById(canvas);
+                canvas.width = size * data.length;
+                canvas.height = size * data[1].length;
+                var ctx = canvas.getContext("2d");
+
+                for(var i = 0; i < data.length; i++){
+                    for(var j = 0; j < data[i].length; j++){
+                        var color = data[i][j];
+                        if(color){
+                        ctx.fillStyle = color;
+                        ctx.fillRect(i * size, j * size, size, size);
+                        }
+                    }
+                }
+                return canvas.toDataURL();
+            }
+        </script>
+    </body>
+</html>
