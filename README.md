@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/t04glover/doggy-id-parser/master/img/project-banner.png" data-canonical-src="https://raw.github.com/t04glover/doggy-id-parser/master/img/project-banner.png" align="center"/>
+<img src="https://raw.githubusercontent.com/t04glovern/doggy-id-parser/master/img/project-banner.png" data-canonical-src="https://raw.githubusercontent.com/t04glovern/doggy-id-parser/master/img/project-banner.png" align="center"/>
 
 <div align = "center">
     <h1>DoggyID <em>Parser</em></h1>
