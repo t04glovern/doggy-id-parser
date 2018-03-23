@@ -38,7 +38,7 @@ The PPM definitions for the types of images output can be found in `doggyidparse
 
             function generateDoggyImage(doggyId, size){
                 size = size || 10;
-                var data = kittycoinparser(doggyId);
+                var data = doggyidparser(doggyId);
                 var canvas = document.getElementById("canvas");
                 canvas.width = size * data.length;
                 canvas.height = size * data[1].length;
